@@ -1,4 +1,4 @@
-# Kotlin Backend V1 API 분석
+      # Kotlin Backend V1 API 분석
 
 분석 대상: [team-native/Kotlin-Backend-V1](https://github.com/team-native/Kotlin-Backend-V1) · 기준 커밋 [`81345d5`](https://github.com/team-native/Kotlin-Backend-V1/commit/81345d5)
 
@@ -247,8 +247,8 @@ GET /api/v1/public/ping
 GET /api/v1/private/ping
 → anyRequest().authenticated()
 → Authorization Basic 검증
-├─ 실패: Controller를 실행하지 않고 401
-└─ 성공: SampleController.privatePing()
+ㄴ> 실패: Controller를 실행하지 않고 401
+ㄴ> 성공: SampleController.privatePing()
           → {\"message\":\"private pong\"}
           → 200 OK
 ```
@@ -260,10 +260,10 @@ POST /api/v1/auth/login
 → /api/v1/auth/** permitAll
 → JSON을 LoginRequest(username, password)로 역직렬화
 → @Valid와 @NotBlank 검증
-├─ 실패: MethodArgumentNotValidException
-│        → GlobalExceptionHandler
-│        → 400 VALIDATION_ERROR
-└─ 성공: AuthController.login()
+ㄴ> 실패: MethodArgumentNotValidException
+|        → GlobalExceptionHandler
+|        → 400 VALIDATION_ERROR
+ㄴ> 성공: AuthController.login()
           → 고정 accessToken과 username으로 LoginResponse 생성
           → 200 OK
 ```
